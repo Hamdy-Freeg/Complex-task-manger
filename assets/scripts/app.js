@@ -13,6 +13,7 @@ const taskItems = document.querySelectorAll('.taskItem');
 const headingText = document.getElementById('headingText');
 const editIcon = document.getElementById('editIcon');
 const editBtn = document.getElementById('ConfirmUpdate');
+let drag;
 
 function overLayHandler(over) {
   over.classList.add('visible');
@@ -49,7 +50,7 @@ function inputHandler() {
   let inputVal = inputHeading.value;
   function listContent(num) {
     taskLists[num].innerHTML += `
-    <li draggable="true" class="taskItem">
+    <li  draggable="true" class="taskItem">
     <div>
     <p class="text" id='text'>${inputVal}</p>
     </div>
@@ -77,15 +78,6 @@ function inputHandler() {
   }
 
   backdropHandler();
-}
-
-function dragItem() {
-  let items = taskItems;
-  items.forEach((task) => {
-    task.addEventListener('dragstart', function () {
-      console.log('dsfa');
-    });
-  });
 }
 
 // event listeners
@@ -136,5 +128,36 @@ taskLists.forEach((taskList) => {
         });
       }
     }
+  });
+});
+
+taskLists.forEach((list) => {
+  list.addEventListener('dragstart', (event) => {
+    if (event.target.tagName === 'LI') {
+      li = event.target;
+      drag = li;
+      li.style.opacity = '0.5';
+    }
+  });
+
+  list.addEventListener('dragend', (event) => {
+    if (event.target.tagName === 'LI') {
+      li = event.target;
+      drag = null;
+      li.style.opacity = '1';
+    }
+  });
+  taskLists.forEach((listBox) => {
+    listBox.addEventListener('dragover', function (event) {
+      event.preventDefault();
+      listBox.style.backgroundColor = '#01876f';
+    });
+    listBox.addEventListener('dragleave', function () {
+      listBox.style.backgroundColor = '#009578';
+    });
+    listBox.addEventListener('drop', function () {
+      listBox.append(drag);
+      listBox.style.backgroundColor = '#009578';
+    });
   });
 });
