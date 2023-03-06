@@ -1,0 +1,251 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  overflow: auto;
+}
+
+.mainContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-items: start;
+  background-color: #009578;
+}
+
+.Container {
+  width: 28%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.headingText {
+  font-size: 32px;
+  margin-bottom: 16px;
+  margin-top: 50px;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 5px 12px; */
+}
+
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+  align-items: center;
+  width: 100%;
+  padding: 10px 9px;
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.taskItem > div:first-child {
+  width: 80%;
+  height: 100%;
+  text-align: start;
+}
+
+.text {
+  padding: 10px 0;
+}
+
+.BtnIcon {
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+  transition: 1 all;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  width: 18px;
+  height: 18px;
+}
+
+.BtnIcon > ion-icon {
+  width: inherit;
+  height: inherit;
+}
+
+#editIcon:hover {
+  color: #009578;
+}
+#trashIcon:hover {
+  color: #e03131;
+}
+
+.addBtn {
+  color: #fff;
+  border: none;
+  background-color: #01876f;
+  padding: 14px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 6px rgba(8, 127, 91, 1);
+  margin-bottom: 50px;
+  transition: 0.3s all;
+  font-size: 20px;
+  font-weight: 500;
+}
+.addBtn:hover,
+.addBtn:focus {
+  background-color: #009578;
+}
+
+.templateContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 3px solid #777;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  z-index: 2;
+  display: none;
+}
+
+.inputContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 3px solid #777;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  z-index: 2;
+}
+
+.addBtnContainer {
+  display: none;
+}
+
+.popContainer {
+  display: none;
+}
+.overlay {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  display: none;
+}
+
+.visible {
+  display: flex;
+}
+
+.taskFeild {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lable {
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+.input {
+  padding: 5px 0;
+  transition: 0.4s all;
+  border: none;
+  border-bottom: 1px solid #777;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom: 1px solid #009578;
+}
+
+.heading {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+select {
+  padding: 5px 0;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #777;
+}
+
+.select:focus {
+  outline: none;
+}
+
+.btnDiv {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.Btn {
+  background-color: #01876f;
+  padding: 14px 16px;
+  border: 1px solid #777;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s all;
+  color: #ede6e6;
+  font-size: large;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.cancelBtn {
+  background-color: #e03131;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* width: 20%; */
+  gap: 8px;
+}

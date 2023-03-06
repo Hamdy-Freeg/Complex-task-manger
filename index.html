@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles/main.css" />
+    <script src="assets/scripts/app.js" defer></script>
+    <title>Task Manger</title>
+  </head>
+  <body>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="inputContainer addBtnContainer" id="addTask">
+      <div class="taskFeild" id="taskFeild">
+        <label class="lable" for="inputHeading">Enter Task</label>
+        <input
+          placeholder="Your Task"
+          class="input"
+          type="text"
+          id="inputHeading"
+        />
+        <label class="lable" for="selectOption">Task type</label>
+        <select id="select">
+          <option value="notStarted">Not Started</option>
+          <option value="inProgress">In Progress</option>
+          <option value="compeleted">Compeleted</option>
+        </select>
+        <div class="btnDiv">
+          <button class="Btn cancelBtn">Cancel</button>
+          <button class="Btn" id="confirmBtn">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="inputContainer popContainer" id="editTask">
+      <div class="taskFeild" id="taskFeild">
+        <label class="lable" for="EditInput">Edit Task</label>
+        <input
+          placeholder="Your Task"
+          class="input"
+          type="text"
+          id="EditInput"
+        />
+        <div class="btnDiv">
+          <button class="Btn cancelBtn">Cancel</button>
+          <button class="Btn" id="ConfirmUpdate">Edit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="templateContainer" id="info">
+      <div class="taskInfo" id="taskInfo">
+        <h3 class="heading" id="headingText">SomeText</h3>
+      </div>
+    </div>
+
+    <section class="mainContainer">
+      <div class="Container" id="notStartedContainer">
+        <h2 class="headingText">Not Started</h2>
+        <ul class="taskList"></ul>
+        <button class="addBtn">+ Add</button>
+      </div>
+      <div class="Container" id="inProgressContainer">
+        <h2 class="headingText">In Progress</h2>
+        <ul class="taskList"></ul>
+        <button class="addBtn">+ Add</button>
+      </div>
+      <div class="Container" id="CompletedContainer">
+        <h2 class="headingText">Completed</h2>
+        <ul class="taskList"></ul>
+        <button class="addBtn">+ Add</button>
+      </div>
+    </section>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
