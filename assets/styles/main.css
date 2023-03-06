@@ -259,3 +259,36 @@ select {
 .taskList {
   min-height: 30px;
 }
+
+/* media query for mobil */
+
+@media (max-width: 600px) {
+  .inputContainer {
+    top: 70%;
+    width: 390px;
+  }
+
+  .overlay {
+    height: 200%;
+    width: 200%;
+  }
+
+  .templateContainer {
+    top: 70%;
+    width: 390px;
+  }
+
+  .mainContainer {
+    top: 70%;
+    height: 120vh;
+    max-width: 460px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .Container {
+    width: 80%;
+    text-align: center;
+  }
+}
