@@ -13,7 +13,36 @@ const taskItems = document.querySelectorAll('.taskItem');
 const headingText = document.getElementById('headingText');
 const editIcon = document.getElementById('editIcon');
 const editBtn = document.getElementById('ConfirmUpdate');
+const notStarted = document.getElementById('notStartedContainer');
+const inProgress = document.getElementById('inProgressContainer');
+const completed = document.getElementById('CompletedContainer');
 let drag;
+let notStartedArr = [];
+let inProgressArr = [];
+let completedArr = [];
+
+chekingTasks(notStartedArr);
+chekingTasks(inProgressArr);
+chekingTasks(completedArr);
+getDataFormLocalStorage();
+
+function chekingTasks(array) {
+  if (array === notStartedArr) {
+    if (localStorage.getItem('notStarted')) {
+      notStartedArr = JSON.parse(localStorage.getItem('notStarted'));
+    }
+  }
+  if (array === inProgressArr) {
+    if (localStorage.getItem('inProgress')) {
+      inProgressArr = JSON.parse(localStorage.getItem('inProgress'));
+    }
+  }
+  if (array === completedArr) {
+    if (localStorage.getItem('completed')) {
+      completedArr = JSON.parse(localStorage.getItem('completed'));
+    }
+  }
+}
 
 function overLayHandler(over) {
   over.classList.add('visible');
@@ -68,16 +97,61 @@ function inputHandler() {
   if (inputVal == '') {
     alert('Enter Task');
     return;
-  }
-  if (select.value == 'notStarted') {
+  } else if (select.value == 'notStarted') {
     listContent(0);
+    addToArray(inputVal, 'notStarted');
+    inputVal === '';
   } else if (select.value == 'inProgress') {
     listContent(1);
+    addToArray(inputVal, 'inProgress');
+    inputVal === '';
   } else {
     listContent(2);
+    addToArray(inputVal, 'completed');
+    inputVal === '';
   }
-
   backdropHandler();
+}
+
+function addToArray(taskText, status) {
+  const task = {
+    id: Date.now(),
+    title: taskText,
+    status: status,
+  };
+  if (task.status === 'notStarted') {
+    notStartedArr.push(task);
+    addDataToLocalStorageFrom(notStartedArr, task.status);
+  } else if (task.status === 'inProgress') {
+    inProgressArr.push(task);
+    addDataToLocalStorageFrom(inProgressArr, task.status);
+  } else {
+    completedArr.push(task);
+    addDataToLocalStorageFrom(completedArr, task.status);
+  }
+  getDataFormLocalStorage(status);
+}
+
+function addDataToLocalStorageFrom(arr, task) {
+  window.localStorage.setItem(task, JSON.stringify(arr));
+}
+
+function getDataFormLocalStorage() {
+  let data = window.localStorage.getItem('notStarted');
+  let data2 = window.localStorage.getItem('inProgress');
+  let data3 = window.localStorage.getItem('completed');
+  if (data) {
+    let task = JSON.parse(data);
+    console.log(task);
+  }
+  if (data2) {
+    let task = JSON.parse(data2);
+    console.log(task);
+  }
+  if (data3) {
+    let task = JSON.parse(data3);
+    console.log(task);
+  }
 }
 
 // event listeners

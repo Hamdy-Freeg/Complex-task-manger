@@ -66,6 +66,7 @@ p {
   background: #fff;
   border-radius: 5px;
   margin-bottom: 10px;
+  transition: 0.3s all;
 }
 
 .taskItem > div:first-child {
@@ -258,6 +259,11 @@ select {
 
 .taskList {
   min-height: 30px;
+}
+
+.dropMargin {
+  height: 10px;
+  transition: background 0.15s, height 0.15s;
 }
 
 /* media query for mobil */
